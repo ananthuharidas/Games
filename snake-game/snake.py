@@ -38,6 +38,13 @@ class Snake:
         new_segment.setposition(position)
         self.segments.append(new_segment)
 
+    def reset(self):
+        for segment in self.segments:
+            segment.goto(1000, 1000)
+        self.segments.clear()
+        self.spawn_the_snake()
+        self.head = self.segments[0]
+
     def up(self):
         """Move the snake up."""
         if self.head.heading() != DOWN:
